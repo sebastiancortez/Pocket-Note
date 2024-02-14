@@ -4,7 +4,7 @@
 </script>
 
 <div class="md:hidden">
-  <img
+  <!-- <img
     src="/examples/authentication-light.png"
     width={1280}
     height={843}
@@ -17,7 +17,7 @@
     height={843}
     alt="Authentication"
     class="hidden dark:block"
-  />
+  /> -->
 </div>
 <div
   class="container relative hidden h-[800px] flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0"

@@ -2,6 +2,7 @@ import { b as createEventDispatcher, c as create_ssr_component, d as compute_res
 import { tv } from "tailwind-variants";
 import { d as derived, r as readable } from "../../chunks/index.js";
 import { clsx } from "clsx";
+import "../../chunks/sentry-release-injection-file.js";
 import { twMerge } from "tailwind-merge";
 const void_element_names = /^(?:area|base|br|col|command|embed|hr|img|input|keygen|link|meta|param|source|track|wbr)$/;
 function is_void(name) {
@@ -479,7 +480,7 @@ const UserAuthForm = create_ssr_component(($$result, $$props, $$bindings, slots)
   )}</div>`;
 });
 const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  return `<div class="md:hidden" data-svelte-h="svelte-16tmji"><img src="/examples/authentication-light.png"${add_attribute("width", 1280, 0)}${add_attribute("height", 843, 0)} alt="Authentication" class="block dark:hidden"> <img src="/examples/authentication-dark.png"${add_attribute("width", 1280, 0)}${add_attribute("height", 843, 0)} alt="Authentication" class="hidden dark:block"></div> <div class="container relative hidden h-[800px] flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">${validate_component(Button, "Button").$$render(
+  return `<div class="md:hidden" data-svelte-h="svelte-1kqpkyh"></div> <div class="container relative hidden h-[800px] flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">${validate_component(Button, "Button").$$render(
     $$result,
     {
       href: "/examples/authentication",
@@ -503,3 +504,4 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 export {
   Page as default
 };
+//# sourceMappingURL=_page.svelte.js.map
