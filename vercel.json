@@ -1,0 +1,13 @@
+{
+    "builds": [
+      {
+        "src": "package.json",
+        "use": "@vercel/node",
+        "config": {
+          "build": {
+            "command": "pnpm install && pnpm run build"
+          }
+        }
+      }
+    ]
+  }
