@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Button } from "$lib/components/ui/button";
   import UserAuthForm from "$lib/components/UserAuthForm.svelte";
-  import { startActiveSpan } from "@sentry/sveltekit";
+  import { startSpan } from "@sentry/sveltekit";
   import type { PageData } from "./$types";
 
   export let data: PageData;
