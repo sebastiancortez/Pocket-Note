@@ -1,6 +1,10 @@
 <script lang="ts">
   import { Button } from "$lib/components/ui/button";
   import UserAuthForm from "$lib/components/UserAuthForm.svelte";
+  import { startActiveSpan } from "@sentry/sveltekit";
+  import type { PageData } from "./$types";
+
+  export let data: PageData;
 </script>
 
 <div class="md:hidden">
@@ -81,6 +85,11 @@
         </a>
         .
       </p>
+      {#if data.session}
+        <p>{data.session.user.email}</p>
+      {:else}
+        <p>You are not logged in</p>
+      {/if}
     </div>
   </div>
 </div>
