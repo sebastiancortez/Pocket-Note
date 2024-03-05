@@ -26,13 +26,13 @@
 <div
   class="container relative hidden h-[800px] flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0"
 >
-  <Button
+  <!-- <Button
     href="/examples/authentication"
     variant="ghost"
     class="absolute right-4 top-4 md:right-8 md:top-8"
   >
     Login
-  </Button>
+  </Button> -->
   <div
     class="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex"
   >
@@ -86,9 +86,11 @@
         .
       </p>
       {#if data.session}
-        <p>{data.session.user.email}</p>
+        <p class="px-8 text-center text-sm text-muted-foreground">
+          {data.session.user.email}
+        </p>
       {:else}
-        <p>You are not logged in</p>
+        <p class="px-8 text-center text-sm">You are not logged in</p>
       {/if}
     </div>
   </div>
