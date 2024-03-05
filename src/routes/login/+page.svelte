@@ -3,17 +3,33 @@
   import UserAuthForm from "$lib/components/UserAuthForm.svelte";
   import { startSpan } from "@sentry/sveltekit";
   import type { PageData } from "./$types";
+  import { InstagramLogo, Symbol, Exit } from "radix-icons-svelte";
 
   export let data: PageData;
 
   async function signInWithFacebook() {
     await data.supabase.auth.signInWithOAuth({
       provider: "facebook",
+      options: {
+        redirectTo: "http://localhost:5173/auth/callback",
+      },
     });
   }
 
   async function signOut() {
     await data.supabase.auth.signOut();
+  }
+
+  let className: string | undefined | null = undefined;
+  export { className as class };
+
+  let isLoading = false;
+  async function onSubmit() {
+    isLoading = true;
+
+    setTimeout(() => {
+      isLoading = false;
+    }, 3000);
   }
 </script>
 
@@ -77,7 +93,33 @@
           Enter your email below to create your account
         </p> -->
       </div>
-      <UserAuthForm />
+      <!-- <UserAuthForm /> -->
+      <Button
+        on:click={() => signInWithFacebook()}
+        variant="outline"
+        type="button"
+        disabled={isLoading}
+      >
+        {#if isLoading}
+          <Symbol class="mr-2 h-4 w-4 animate-spin" />
+        {:else}
+          <!-- <InstagramLogo class="mr-2 h-4 w-4" /> -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="mr-2 h-4 w-4"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"
+            />
+          </svg>
+        {/if}
+        {" "}
+        Sign In with Facebook
+      </Button>
       <p class="px-8 text-center text-sm text-muted-foreground">
         By clicking continue, you agree to our{" "}
         <a
@@ -95,9 +137,23 @@
         </a>
         .
       </p>
-      {#if data.session}
+      {#if data.user}
         <p class="px-8 text-center text-sm text-muted-foreground">
-          {data.session.user.email}
+          {data.user.email}
+          <Button
+            on:click={() => signOut()}
+            variant="outline"
+            type="button"
+            disabled={isLoading}
+          >
+            {#if isLoading}
+              <Symbol class="mr-2 h-4 w-4 animate-spin" />
+            {:else}
+              <Exit class="mr-2 h-4 w-4" />
+            {/if}
+            {" "}
+            Sign Out
+          </Button>
         </p>
       {:else}
         <p class="px-8 text-center text-sm">You are not logged in</p>

@@ -51,12 +51,12 @@
       </span>
     </div>
   </div> -->
-  <Button variant="outline" type="button" disabled={isLoading}>
+  <!-- <Button on:click={() => signInwithFacebook()} variant="outline" type="button" disabled={isLoading}>
     {#if isLoading}
       <Symbol class="mr-2 h-4 w-4 animate-spin" />
-    {:else}
-      <!-- <InstagramLogo class="mr-2 h-4 w-4" /> -->
-      <svg
+    {:else} -->
+  <!-- <InstagramLogo class="mr-2 h-4 w-4" /> -->
+  <!-- <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
         height="16"
@@ -71,5 +71,5 @@
     {/if}
     {" "}
     Sign In with Facebook
-  </Button>
+  </Button> -->
 </div>
