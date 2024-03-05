@@ -11,7 +11,7 @@
     await data.supabase.auth.signInWithOAuth({
       provider: "facebook",
       options: {
-        redirectTo: "http://localhost:5173/auth/callback",
+        redirectTo: `${window.location.origin}/auth/callback`,
       },
     });
   }
