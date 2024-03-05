@@ -5,6 +5,16 @@
   import type { PageData } from "./$types";
 
   export let data: PageData;
+
+  async function signInWithFacebook() {
+    await data.supabase.auth.signInWithOAuth({
+      provider: "facebook",
+    });
+  }
+
+  async function signOut() {
+    await data.supabase.auth.signOut();
+  }
 </script>
 
 <div class="md:hidden">
