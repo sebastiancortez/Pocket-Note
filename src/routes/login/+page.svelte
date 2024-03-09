@@ -17,7 +17,7 @@
   }
 
   async function signOut() {
-    await data.supabase.auth.signOut();
+    await data.supabase.auth.signOut({});
   }
 
   let className: string | undefined | null = undefined;
@@ -79,7 +79,7 @@
           deliver stunning designs to my clients faster than ever before. Highly
           recommended!&rdquo;
         </p>
-        <footer class="text-sm">Sofia Davis</footer>
+        <footer class="text-sm">Pepito</footer>
       </blockquote>
     </div>
   </div>
@@ -137,27 +137,6 @@
         </a>
         .
       </p>
-      {#if data.user}
-        <p class="px-8 text-center text-sm text-muted-foreground">
-          {data.user.email}
-          <Button
-            on:click={() => signOut()}
-            variant="outline"
-            type="button"
-            disabled={isLoading}
-          >
-            {#if isLoading}
-              <Symbol class="mr-2 h-4 w-4 animate-spin" />
-            {:else}
-              <Exit class="mr-2 h-4 w-4" />
-            {/if}
-            {" "}
-            Sign Out
-          </Button>
-        </p>
-      {:else}
-        <p class="px-8 text-center text-sm">You are not logged in</p>
-      {/if}
     </div>
   </div>
 </div>
