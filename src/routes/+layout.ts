@@ -5,6 +5,8 @@ import { createBrowserClient, isBrowser, parse } from '@supabase/ssr'
 export const load: LayoutLoad = async ({ fetch, data, depends }) => {
   depends('supabase:auth')
 
+
+  // Am I exposing my keys here?
   const supabase = createBrowserClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
     global: {
       fetch,
