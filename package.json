@@ -8,7 +8,8 @@
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "generate": "drizzle-kit generate:pg"
+    "generate": "drizzle-kit generate:pg",
+    "drop": "drizzle-kit drop"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^3.1.1",
