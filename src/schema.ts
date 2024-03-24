@@ -7,6 +7,7 @@ export const users = pgTable("users", {
   passwordHash: text("password_hash"),
   status: text("status"),
   isPaidUser: boolean("is_paid_user").default(false),
+  isInboxrpivate: boolean("is_inbox_private").default(false),
   currentInboxUrl: text("current_inbox_url").unique().notNull(),
   previousInboxUrl: text("previous_inbox_url"),
   previousUrlExpiry: timestamp("previous_url_expiry", {withTimezone: true}),
