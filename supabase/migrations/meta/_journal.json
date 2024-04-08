@@ -5,22 +5,8 @@
     {
       "idx": 0,
       "version": "5",
-      "when": 1710715294263,
-      "tag": "0000_glamorous_fixer",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1710715348918,
-      "tag": "0001_deep_sway",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "5",
-      "when": 1710987021444,
-      "tag": "0002_brave_firedrake",
+      "when": 1712361849853,
+      "tag": "0000_abnormal_dreaming_celestial",
       "breakpoints": true
     }
   ]
