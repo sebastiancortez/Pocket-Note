@@ -75,9 +75,8 @@
     <div class="relative z-20 mt-auto">
       <blockquote class="space-y-2">
         <p class="text-lg">
-          &ldquo;This product has saved me countless hours of work and helped me
-          deliver stunning designs to my clients faster than ever before. Highly
-          recommended!&rdquo;
+          &ldquo;I love the design of this app. It's a nice refreshing look to
+          my workspace&rdquo;
         </p>
         <footer class="text-sm">Pepito</footer>
       </blockquote>
