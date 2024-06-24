@@ -8,5 +8,8 @@ export default defineConfig({
             org: "pocketnote",
             project: "javascript-sveltekit"
         }
-    }), sveltekit()]
+    }), sveltekit()],
+    optimizeDeps: {
+        include: ['perf_hooks', 'crypto', 'stream', 'fs', 'net', 'tls']
+    }
 });

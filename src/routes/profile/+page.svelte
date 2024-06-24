@@ -12,8 +12,8 @@
     await data.supabase.auth.signOut();
   }
 
-  let className: string | undefined | null = undefined;
-  export { className as class };
+  // let className: string | undefined | null = undefined;
+  // export { className as class };
 
   let isLoading = false;
   async function onSubmit() {

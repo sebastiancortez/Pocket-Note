@@ -13,5 +13,5 @@ const db = drizzle(client);
 const allUsers = await db.select().from(users);
 
 export const load = (async () => {
-    return {};
+    return {allUsers};
 }) satisfies PageLoad;

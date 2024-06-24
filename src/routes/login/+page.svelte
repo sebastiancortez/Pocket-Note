@@ -29,8 +29,8 @@
     await data.supabase.auth.signOut({});
   }
 
-  let className: string | undefined | null = undefined;
-  export { className as class };
+  // let className: string | undefined | null = undefined;
+  // export { className as class };
 
   let isLoading = false;
   async function onSubmit() {
@@ -137,7 +137,6 @@
         {#if isLoading}
           <Symbol class="mr-2 h-4 w-4 animate-spin" />
         {:else}
-          <!-- <InstagramLogo class="mr-2 h-4 w-4" /> -->
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="0.98em"

@@ -4,7 +4,7 @@
   import { startSpan } from "@sentry/sveltekit";
   import type { PageData } from "./$types";
 
-  export let data: PageData;
+  // export let data: PageData;
 </script>
 
 <section class="w-full py-12 md:py-24 lg:py-32 xl:py-48">
