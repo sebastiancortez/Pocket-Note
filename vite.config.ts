@@ -9,7 +9,8 @@ export default defineConfig({
             project: "javascript-sveltekit"
         }
     }), sveltekit()],
-    optimizeDeps: {
-        include: ['perf_hooks', 'crypto', 'stream', 'fs', 'net', 'tls']
-    }
+    build: {
+        rollupOptions: {
+            external: ['crypto', 'stream', 'perf_hooks']
+        }}
 });
