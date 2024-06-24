@@ -18,6 +18,11 @@
       <p class="mt-2 text-gray-600 dark:text-gray-400">
         Enter a unique username to continue.
       </p>
+      <ul>
+        {#each data.allUsers as user}
+          <li>{user.username}</li>
+        {/each}
+      </ul>
     </div>
     <form class="space-y-4">
       <div>
