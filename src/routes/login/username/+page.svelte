@@ -3,8 +3,11 @@
   import { Input } from "$lib/components/ui/input";
   import { Button } from "$lib/components/ui/button";
   import { Label } from "$lib/components/ui/label";
+  import { ConsoleLogWriter } from "drizzle-orm";
 
   export let data: PageData;
+
+  console.log(data.users);
 </script>
 
 <main
