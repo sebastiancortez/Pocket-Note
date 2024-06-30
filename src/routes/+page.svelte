@@ -23,7 +23,7 @@
         </p>
       </div>
       <div class="space-x-4">
-        <Button href="/login" variant="default">Login</Button>
+        <Button href="/login" variant="default">Start</Button>
       </div>
     </div>
   </div>
