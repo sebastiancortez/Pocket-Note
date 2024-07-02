@@ -26,6 +26,20 @@
       <div>
         <Label
           class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+          for="name"
+        >
+          Name
+        </Label>
+        <div class="mt-1">
+          <Input
+            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            id="name"
+            placeholder="Enter your name"
+            type="text"
+          />
+        </div>
+        <Label
+          class="block text-sm font-medium text-gray-700 dark:text-gray-300"
           for="username"
         >
           Username
