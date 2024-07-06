@@ -8,6 +8,8 @@
   import { Button } from "$lib/components/ui/button";
   import { InstagramLogo, Symbol, Exit } from "radix-icons-svelte";
 
+  const { data } = $props();
+
   async function signOut() {
     await data.supabase.auth.signOut();
   }
@@ -24,7 +26,7 @@
     }, 3000);
   }
 
-  export let data: PageData;
+  $inspect(data);
 </script>
 
 <div
