@@ -1,5 +1,6 @@
 import { db } from "$lib/db";
 import { users } from "$lib/db/schema";
+import { generateinboxId } from "$lib/profile";
 import { error } from "@sveltejs/kit";
 import { eq } from "drizzle-orm";
 
@@ -18,12 +19,15 @@ export const getOrCreateUserProfile = async (locals: App.Locals) => {
     return curProfile;
   }
 
+  const inboxId = await generateinboxId()
+
+
   await db.insert(users).values({
     id: "",
     userId: "",
     email: user.email ?? "",
     username: "",
-    currentInboxUrl: "",
+    currentInboxUrl: inboxId,
   });
 
   const newProfile = await db.query.users.findFirst({

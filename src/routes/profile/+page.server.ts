@@ -1,7 +1,5 @@
-import type { PageServerLoad } from './$types';
-
 export const load = (async ({locals}) => {
-    const user = await locals.supabase.auth.getUser();
+    const { user } = await locals.safeGetSession();
 
-    return {user: user.data.user};
-}) satisfies PageServerLoad;
+    return user;
+})

@@ -7,7 +7,7 @@
 
   export let data: PageData;
 
-  console.log(data.users);
+  console.log(data.user);
 </script>
 
 <main

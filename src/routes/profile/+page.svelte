@@ -49,7 +49,7 @@
             </p>
           </div>
           <Avatar class="h-24 w-24">
-            <AvatarImage alt="Your avatar" src="/placeholder-avatar.jpg" />
+            <!-- <AvatarImage alt="Your avatar" src="/placeholder-avatar.jpg" /> -->
             <AvatarFallback
               >{data.user?.email?.charAt(0)?.toUpperCase() ||
                 "A"}</AvatarFallback
