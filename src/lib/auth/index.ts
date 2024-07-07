@@ -19,12 +19,12 @@ export const getOrCreateUserProfile = async (locals: App.Locals) => {
     return curProfile;
   }
 
-  const inboxId = await generateinboxId()
+  const inboxId = generateinboxId()
 
 
   await db.insert(users).values({
     id: "",
-    userId: "",
+    userId: user.id,
     email: user.email ?? "",
     username: "",
     currentInboxUrl: inboxId,
