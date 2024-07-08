@@ -1,7 +1,7 @@
 import { pgTable, uuid, text, boolean, timestamp, integer, serial, primaryKey } from "drizzle-orm/pg-core";
 
 export const users = pgTable("users", {
-  id: uuid("id").primaryKey(),
+  id: uuid('id').default('gen_random_uuid()').primaryKey(),
   userId: uuid("user_id").notNull(),
   email: text("email").unique().notNull(),
   username: text("username").unique().notNull(),
