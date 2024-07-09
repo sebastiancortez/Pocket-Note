@@ -48,6 +48,7 @@
   <div
     class="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex"
   >
+    <!-- svelte-ignore element_invalid_self_closing_tag -->
     <div
       class="absolute inset-0 bg-cover"
       style="

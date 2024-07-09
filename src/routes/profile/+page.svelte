@@ -17,7 +17,7 @@
   // let className: string | undefined | null = undefined;
   // export { className as class };
 
-  let isLoading = false;
+  let isLoading = $state(false);
   async function onSubmit() {
     isLoading = true;
 
