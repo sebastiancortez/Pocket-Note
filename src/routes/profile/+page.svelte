@@ -42,7 +42,9 @@
       {#if data.user}
         <div class="flex flex-col items-center space-y-3">
           <div class="text-center space-y-2">
-            <h1 class="text-3xl font-bold">Hi, {data.user.email}</h1>
+            <h1 class="text-3xl font-bold">
+              Hi, {data.userProfile?.username}
+            </h1>
             <p class="text-gray-500 dark:text-gray-400">
               Welcome to your profile. Here you can configure your private inbox
               link, plus other stuff

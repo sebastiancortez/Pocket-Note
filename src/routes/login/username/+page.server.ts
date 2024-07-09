@@ -1,36 +1,52 @@
-import { getOrCreateUserProfile } from '$lib/auth';
+import { getProfile, createProfile } from '$lib/auth';
 import { db } from '$lib/db';
 import { superValidate } from "sveltekit-superforms";
 import { formSchema } from "./schema";
 import { zod } from "sveltekit-superforms/adapters";
 import type { PageServerLoad, Actions } from "./$types.js";
-import { fail } from "@sveltejs/kit";
+import { fail, redirect } from "@sveltejs/kit";
 
-export const load = (async ({locals}) => {
-    return { 
-        form: await superValidate(zod(formSchema))
+export const load = (async ({ locals }) => {
+  const userProfile = await getProfile(locals);
+
+  if (userProfile && userProfile.username) {
+    return {
+      hasUsername: true,
+      form: await superValidate(zod(formSchema)),
+      userProfile
     };
+  }
+
+  return {
+    hasUsername: false,
+    form: await superValidate(zod(formSchema)),
+    userProfile
+  };
 }) satisfies PageServerLoad;
 
 export const actions: Actions = {
-    default: async (event) => {
-      const form = await superValidate(event, zod(formSchema));
-      if (!form.valid) {
-        console.log("Form validation failed:", form);
-        return fail(400, {
-          form,
-        });
-      }
-
-      console.log("Form validation succeeded:", form);
-
-      const userProfile = await getOrCreateUserProfile(event.locals, form.data.username);
-
-      console.log("User profile:", userProfile);
-
-      return {
+  default: async (event) => {
+    const form = await superValidate(event, zod(formSchema));
+    if (!form.valid) {
+      console.log("Form validation failed:", form);
+      return fail(400, {
         form,
-        userProfile
-      };
-    },
+      });
+    }
+
+    console.log("Form validation succeeded:", form);
+
+    const userProfile = await createProfile(event.locals, form.data.username);
+
+    if (userProfile) {
+      console.log("User profile created:", userProfile);
+      throw redirect(303, '/profile');
+    } else {
+      console.log("Failed to create user profile");
+      return fail(500, {
+        form,
+        error: "Failed to create user profile"
+      });
+    }
+  },
 };
