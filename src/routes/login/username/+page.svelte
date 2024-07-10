@@ -8,7 +8,7 @@
   export let data: PageData;
 
   function redirectToProfile() {
-    goto("/profile");
+    goto(`/${data.userProfile?.username}`);
   }
 </script>
 

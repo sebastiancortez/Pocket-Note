@@ -61,7 +61,7 @@
       {/if}
       {#if data.user}
         <Button
-          on:click={async () => {
+          onclick={async () => {
             await signOut();
             window.location.href = "/login";
           }}

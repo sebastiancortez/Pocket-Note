@@ -14,7 +14,7 @@ export const GET = async (event) => {
 			const user = data.session.user;
 			const userProfile = await getProfile(event.locals);
 			if (userProfile && userProfile.username) {
-				redirect(303, '/profile');
+				redirect(303, `/${userProfile.username}`);
 			} else {
 				redirect(303, '/login/username');
 			}

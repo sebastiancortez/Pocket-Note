@@ -60,3 +60,17 @@ export const createProfile = async (locals: App.Locals, username: string) => {
   console.log("New profile created:", newProfile);
   return newProfile;
 };
+
+export const getProfileByUsername = async (username: string) => {
+  const userProfile = await db.query.users.findFirst({
+    where: eq(users.username, username),
+  });
+
+  if (!userProfile) {
+    console.error("Profile not found for username:", username);
+    throw error(404, "Profile not found");
+  }
+
+  console.log("Profile found for username:", username, userProfile);
+  return userProfile;
+};
