@@ -14,6 +14,14 @@
     await data.supabase.auth.signOut();
   }
 
+  //Fix this: inboxLink is not being updated correctly. It's just taking the username and not the expected full url
+  let inboxLink = $state("");
+  if (typeof window !== "undefined") {
+    inboxLink = data.userProfile
+      ? `${window.location.href}/${data.userProfile.currentInboxUrl}`
+      : "";
+  }
+
   // let className: string | undefined | null = undefined;
   // export { className as class };
 
@@ -32,31 +40,40 @@
 <div
   class="container px-4 md:px-6 mx-auto flex items-center justify-center min-h-screen"
 >
-  <div class="flex flex-col items-center space-y-4 text-center">
-    <div class="space-y-2">
+  <div class="flex flex-col items-center text-center">
+    <div>
       <p
         class="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400"
       >
         Welcome to Pocket Note
       </p>
       {#if data.user}
-        <div class="flex flex-col items-center space-y-3">
-          <div class="text-center space-y-2">
+        <div class="flex flex-col items-center">
+          <div class="text-center">
             <h1 class="text-3xl font-bold">
               Hi, {data.userProfile?.username}
             </h1>
+            <div class="flex justify-center">
+              <Avatar class="h-24 w-24">
+                <!-- <AvatarImage alt="Your avatar" src="/placeholder-avatar.jpg" /> -->
+                <AvatarFallback
+                  >{data.user?.email?.charAt(0)?.toUpperCase() ||
+                    "A"}</AvatarFallback
+                >
+              </Avatar>
+            </div>
             <p class="text-gray-500 dark:text-gray-400">
               Welcome to your profile. Here you can configure your private inbox
               link, plus other stuff
             </p>
           </div>
-          <Avatar class="h-24 w-24">
-            <!-- <AvatarImage alt="Your avatar" src="/placeholder-avatar.jpg" /> -->
-            <AvatarFallback
-              >{data.user?.email?.charAt(0)?.toUpperCase() ||
-                "A"}</AvatarFallback
-            >
-          </Avatar>
+          <div
+            class="p-4 my-11 bg-black rounded-xl shadow-md flex items-center space-x-4"
+          >
+            <p class="text-white">
+              Your new inbox link is: <a href={inboxLink}>{inboxLink}</a>
+            </p>
+          </div>
         </div>
       {/if}
       {#if data.user}
