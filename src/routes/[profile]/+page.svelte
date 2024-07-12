@@ -14,13 +14,13 @@
     await data.supabase.auth.signOut();
   }
 
-  //Fix this: inboxLink is not being updated correctly. It's just taking the username and not the expected full url
   let inboxLink = $state("");
-  if (typeof window !== "undefined") {
-    inboxLink = data.userProfile
-      ? `${window.location.href}/${data.userProfile.currentInboxUrl}`
-      : "";
-  }
+  //Fix this: inboxLink is not being updated correctly. It's just taking the username and not the expected full url
+  $effect(() => {
+    if (typeof window !== "undefined" && data.userProfile) {
+      inboxLink = `${window.location.origin}/${data.userProfile.username}/${data.userProfile.currentInboxUrl}`;
+    }
+  });
 
   // let className: string | undefined | null = undefined;
   // export { className as class };
