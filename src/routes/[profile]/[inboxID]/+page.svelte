@@ -5,4 +5,8 @@
   export let data: PageData;
 </script>
 
-<MessageForm data={data.form} />
+{#if data.form}
+  <MessageForm data={data.form} />
+{:else}
+  <div class="error-message">Form data is missing.</div>
+{/if}
