@@ -22,7 +22,7 @@ export const socialAuths = pgTable("social_auths", {
 });
 
 export const messages = pgTable("messages", {
-  messageId: uuid("message_id").primaryKey(),
+  messageId: uuid("message_id").default('gen_random_uuid()').primaryKey(),
   content: text("content").notNull(),
   messageCreatedTimestamp: timestamp("message_created_timestamp", {withTimezone: true}).notNull(),
   senderUserId: uuid("sender_user_id").references(() => users.id),

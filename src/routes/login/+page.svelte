@@ -43,7 +43,7 @@
 </script>
 
 <div
-  class="container relative flex h-[800px] flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0"
+  class="container relative flex min-h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0"
 >
   <div
     class="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex"
@@ -68,7 +68,7 @@
       </blockquote>
     </div>
   </div>
-  <div class="lg:p-8">
+  <div class="flex items-center justify-center lg:p-8">
     <div
       class="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]"
     >
