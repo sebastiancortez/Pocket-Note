@@ -78,7 +78,8 @@
       {/if}
       {#if data.user}
         <Button
-          onclick={async () => (window.location.href = "/messages")}
+          onclick={async () =>
+            (window.location.href = `/${data.userProfile.username}/message`)}
           variant="default"
           type="button"
         >
