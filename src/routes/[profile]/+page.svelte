@@ -78,6 +78,13 @@
       {/if}
       {#if data.user}
         <Button
+          onclick={async () => (window.location.href = "/messages")}
+          variant="default"
+          type="button"
+        >
+          Go to Message Window
+        </Button>
+        <Button
           onclick={async () => {
             await signOut();
             window.location.href = "/login";
