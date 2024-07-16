@@ -4,4 +4,8 @@
   export let data: PageData;
 </script>
 
-<pre>{JSON.stringify(data.randomMessage, null, 2)}</pre>
+<div
+  style="display: flex; justify-content: center; align-items: center; height: 100vh;"
+>
+  <strong>{data.randomMessage?.content}</strong>
+</div>
