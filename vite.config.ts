@@ -12,5 +12,6 @@ export default defineConfig({
     build: {
         rollupOptions: {
             external: ['crypto', 'stream', 'perf_hooks']
-        }}
+        }},
+    ssr: { noExternal: ['three', 'troika-three-text'] }
 });
