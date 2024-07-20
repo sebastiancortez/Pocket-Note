@@ -1,15 +1,13 @@
-<div class="scene">
+<script lang="ts">
+  import type { LayoutData } from "./$types";
+
+  export let data: LayoutData;
+</script>
+
+<div class="absolute inset-0 bg-gradient-radial from-gray-800 to-gray-900">
   <slot />
 </div>
 
 <svelte:head>
   <title>Threlte</title>
 </svelte:head>
-
-<style>
-  .scene {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(hsl(220 14% 20%), hsl(220 20% 10%));
-  }
-</style>

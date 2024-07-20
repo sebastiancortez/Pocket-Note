@@ -28,21 +28,19 @@ export const actions: Actions = {
   default: async (event) => {
     const form = await superValidate(event, zod(formSchema));
     if (!form.valid) {
-      console.log("Form validation failed:", form);
+
       return fail(400, {
         form,
       });
     }
 
-    console.log("Form validation succeeded:", form);
-
     const userProfile = await createProfile(event.locals, form.data.username);
 
     if (userProfile) {
-      console.log("User profile created:", userProfile);
+
       throw redirect(303, '/profile');
     } else {
-      console.log("Failed to create user profile");
+
       return fail(500, {
         form,
         error: "Failed to create user profile"

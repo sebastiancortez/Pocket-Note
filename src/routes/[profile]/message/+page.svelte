@@ -6,10 +6,15 @@
   export let data: PageData;
 </script>
 
-<div class="flex justify-center items-center h-screen">
-  <strong class="text-gray-100">{data.randomMessage?.content}</strong>
+<div class="relative w-full h-screen">
+  <p
+    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white z-10"
+  >
+    {data.randomMessage?.content}
+  </p>
+  <div class="absolute inset-0 z-0">
+    <Canvas>
+      <Scene />
+    </Canvas>
+  </div>
 </div>
-
-<Canvas>
-  <Scene />
-</Canvas>

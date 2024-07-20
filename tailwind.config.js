@@ -14,6 +14,9 @@ const config = {
 			}
 		},
 		extend: {
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(circle, var(--tw-gradient-stops))',
+			  },
 			colors: {
 				border: "hsl(var(--border) / <alpha-value>)",
 				input: "hsl(var(--input) / <alpha-value>)",
@@ -47,7 +50,7 @@ const config = {
 				card: {
 					DEFAULT: "hsl(var(--card) / <alpha-value>)",
 					foreground: "hsl(var(--card-foreground) / <alpha-value>)"
-				}
+				},
 			},
 			borderRadius: {
 				lg: "var(--radius)",
