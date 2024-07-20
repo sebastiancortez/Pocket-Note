@@ -35,7 +35,7 @@
     "@supabase/ssr": "^0.1.0",
     "@supabase/supabase-js": "^2.44.1",
     "@threlte/core": "8.0.0-next.12",
-    "@threlte/extras": "^8.11.4",
+    "@threlte/extras": "9.0.0-next.21",
     "@types/three": "^0.166.0",
     "bits-ui": "^0.21.11",
     "clsx": "^2.1.0",
