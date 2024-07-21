@@ -9,7 +9,7 @@
   interactivity();
   const scale = spring(1);
 
-  let rotation = 0;
+  let time = 0;
   const noise = createNoise2D();
   const geometry = new PlaneGeometry(10, 10, 100, 100);
   const vertices = geometry.getAttribute("position").array;
@@ -24,14 +24,13 @@
   geometry.computeVertexNormals();
 
   useTask((delta) => {
-    rotation += delta * 1;
+    time += delta * 0.5; // Adjust speed of wave
 
     // Update z-coordinates to create wave effect
     for (let i = 0; i < vertices.length; i += 3) {
       const x = vertices[i];
       const y = vertices[i + 1];
-      vertices[i + 2] =
-        noise(x / 4, y / 4) + Math.sin((x + rotation) / 2) * 0.5;
+      vertices[i + 2] = noise(x / 4, y / 4) + Math.sin((x + time) / 2) * 0.5;
     }
 
     geometry.attributes.position.needsUpdate = true;
@@ -41,7 +40,7 @@
 
 <T.PerspectiveCamera
   makeDefault
-  position={[0, 10, 0]}
+  position={[10, 10, 10]}
   oncreate={({ ref }) => {
     ref.lookAt(0, 1, 0);
   }}
