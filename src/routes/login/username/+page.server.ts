@@ -38,7 +38,7 @@ export const actions: Actions = {
 
     if (userProfile) {
 
-      throw redirect(303, `/[${userProfile.username}]`);
+      throw redirect(303, `/${userProfile.username}`);
     } else {
 
       return fail(500, {
