@@ -1,6 +1,6 @@
 <script>
   import { T, useTask } from "@threlte/core";
-  import { interactivity } from "@threlte/extras";
+  import { interactivity, OrbitControls } from "@threlte/extras";
   import { createNoise2D } from "simplex-noise";
   import { spring } from "svelte/motion";
   import { DirectionalLight, PlaneGeometry } from "three";
@@ -38,13 +38,23 @@
   });
 </script>
 
+<!-- <T.PerspectiveCamera
+  makeDefault
+  position={[10, 10, 10]}
+  oncreate={({ ref }) => {
+    ref.lookAt(0, 1, 0);
+  }}
+/> -->
+
 <T.PerspectiveCamera
   makeDefault
   position={[10, 10, 10]}
   oncreate={({ ref }) => {
     ref.lookAt(0, 1, 0);
   }}
-/>
+>
+  <OrbitControls enableDamping autoRotate zoomToCursor enableZoom />
+</T.PerspectiveCamera>
 
 <T.DirectionalLight position={[0, 10, 10]} intensity={1.5} />
 

@@ -3,7 +3,7 @@
 
   import { invalidate } from "$app/navigation";
 
-  const { data: propsData } = $props();
+  const { children, data: propsData } = $props();
 
   $effect(() => {
     const { data } = propsData.supabase.auth.onAuthStateChange(
@@ -18,4 +18,4 @@
   });
 </script>
 
-<slot></slot>
+{@render children()}
