@@ -29,7 +29,7 @@
   geometry.computeVertexNormals();
 
   useTask((delta) => {
-    time += delta * 0.5; // Adjust speed of wave
+    time += delta * 0.3; // Adjust speed of wave
 
     // Update z-coordinates to create wave effect
     for (let i = 0; i < vertices.length; i += 3) {
@@ -51,7 +51,7 @@
   }}
 /> -->
 
-<T.PerspectiveCamera makeDefault position={[10, 10, 10]} lookAt.y={1}>
+<T.PerspectiveCamera makeDefault position={[1, 2, 1]} lookAt.y={2}>
   <OrbitControls enableDamping zoomToCursor enableZoom />
 </T.PerspectiveCamera>
 
