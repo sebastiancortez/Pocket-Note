@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
   import { T, useTask } from "@threlte/core";
-  import { interactivity, OrbitControls } from "@threlte/extras";
+  import { Gizmo, interactivity, OrbitControls } from "@threlte/extras";
   import { createNoise2D } from "simplex-noise";
   import { spring } from "svelte/motion";
   import { DirectionalLight, PlaneGeometry } from "three";
@@ -10,15 +10,20 @@
   const scale = spring(1);
 
   let time = 0;
-  const noise = createNoise2D();
-  const geometry = new PlaneGeometry(10, 10, 100, 100);
+  const noise2D = createNoise2D();
+  const geometry = new PlaneGeometry(10, 10, 200, 200);
   const vertices = geometry.getAttribute("position").array;
+
+  // New time-dependent noise function
+  function noise(x: number, y: number, t: number): number {
+    return noise2D(x, y) + noise2D(x + t, y + t) * 0.5;
+  }
 
   // Initial noise-based z-coordinates
   for (let i = 0; i < vertices.length; i += 3) {
     const x = vertices[i];
     const y = vertices[i + 1];
-    vertices[i + 2] = noise(x / 4, y / 4);
+    vertices[i + 2] = noise(x / 4, y, time);
   }
 
   geometry.computeVertexNormals();
@@ -30,7 +35,7 @@
     for (let i = 0; i < vertices.length; i += 3) {
       const x = vertices[i];
       const y = vertices[i + 1];
-      vertices[i + 2] = noise(x / 4, y / 4) + Math.sin((x + time) / 2) * 0.5;
+      vertices[i + 2] = noise(x / 4, y / 4, time);
     }
 
     geometry.attributes.position.needsUpdate = true;
@@ -46,15 +51,11 @@
   }}
 /> -->
 
-<T.PerspectiveCamera
-  makeDefault
-  position={[10, 10, 10]}
-  oncreate={({ ref }) => {
-    ref.lookAt(0, 1, 0);
-  }}
->
-  <OrbitControls enableDamping autoRotate zoomToCursor enableZoom />
+<T.PerspectiveCamera makeDefault position={[10, 10, 10]} lookAt.y={1}>
+  <OrbitControls enableDamping zoomToCursor enableZoom />
 </T.PerspectiveCamera>
+
+<Gizmo />
 
 <T.DirectionalLight position={[0, 10, 10]} intensity={1.5} />
 
