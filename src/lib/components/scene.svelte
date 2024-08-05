@@ -11,7 +11,7 @@
 
   let time = 0;
   const noise2D = createNoise2D();
-  const geometry = new PlaneGeometry(10, 10, 200, 200);
+  const geometry = new PlaneGeometry(20, 20, 200, 200);
   const vertices = geometry.getAttribute("position").array;
 
   // New time-dependent noise function
@@ -51,7 +51,7 @@
   }}
 /> -->
 
-<T.PerspectiveCamera makeDefault position={[1, 2, 1]} lookAt.y={2}>
+<T.PerspectiveCamera makeDefault position={[1, 2, 0]} lookAt.y={2}>
   <OrbitControls enableDamping zoomToCursor enableZoom />
 </T.PerspectiveCamera>
 

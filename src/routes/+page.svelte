@@ -7,7 +7,9 @@
   // export let data: PageData;
 </script>
 
-<section class="w-full py-12 md:py-24 lg:py-32 xl:py-48">
+<section
+  class="container relative flex min-h-screen flex-col items-center justify-center md:grid lg:max-w-none"
+>
   <div class="container px-4 md:px-6">
     <div class="flex flex-col items-center space-y-4 text-center">
       <div class="space-y-2">
